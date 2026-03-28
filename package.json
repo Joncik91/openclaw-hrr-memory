@@ -1,6 +1,6 @@
 {
   "name": "openclaw-hrr-memory",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Structured fact recall for OpenClaw agents using Holographic Reduced Representations. Complements RAG with instant <2ms factual lookups.",
   "type": "module",
   "main": "index.js",

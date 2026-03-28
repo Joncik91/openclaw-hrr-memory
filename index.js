@@ -13,14 +13,8 @@ import { readFileSync, existsSync, watchFile } from "fs";
 import { join, resolve } from "path";
 import { HRRMemory } from "hrr-memory";
 
-// Optional observation layer — gracefully degrade if not installed
-let ObservationMemoryClass = null;
-try {
-  const obs = await import("hrr-memory-obs");
-  ObservationMemoryClass = obs.ObservationMemory;
-} catch {
-  // hrr-memory-obs not installed — core tools still work
-}
+// Optional observation layer — loaded lazily in register()
+import { createRequire } from "module";
 
 // ── MEMORY.md Parser ──────────────────────────────────────────
 
@@ -111,11 +105,16 @@ export default definePluginEntry({
     const INDEX_PATH = join(stateDir, "hrr-index.json");
     const OBS_PATH = join(stateDir, "observations.json");
 
-    const ObservationMemory = enableObs && ObservationMemoryClass ? ObservationMemoryClass : null;
-    if (enableObs && !ObservationMemory) {
-      api.logger.warn("hrr-memory-obs not installed. Install with: npm install hrr-memory-obs");
-    } else if (ObservationMemory) {
-      api.logger.info("Observation layer enabled");
+    let ObservationMemory = null;
+    if (enableObs) {
+      try {
+        const require = createRequire(import.meta.url);
+        const obs = require("hrr-memory-obs");
+        ObservationMemory = obs.ObservationMemory;
+        api.logger.info("Observation layer enabled");
+      } catch {
+        api.logger.warn("hrr-memory-obs not installed. Install with: npm install hrr-memory-obs");
+      }
     }
 
     let mem = null;
