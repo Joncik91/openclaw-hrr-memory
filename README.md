@@ -112,11 +112,17 @@ Becomes:
 
 The `##` heading becomes the subject. Key-value lines become relations and objects.
 
+## Documentation
+
+- **[Setup](docs/setup.md)** — installation, configuration, multi-agent setup
+- **[Tools Reference](docs/tools.md)** — every tool, parameter, and example
+- **[How It Works](docs/how-it-works.md)** — parsing, auto-rebuild, diff tracking, system prompt
+
 ## Links
 
-- [hrr-memory](https://github.com/Joncik91/hrr-memory) — standalone HRR library
-- [hrr-memory-obs](https://github.com/Joncik91/hrr-memory-obs) — observation layer
-- [Architecture](https://github.com/Joncik91/hrr-memory/blob/main/docs/architecture.md) — how HRR works
+- [hrr-memory](https://github.com/Joncik91/hrr-memory) — standalone HRR library (use outside OpenClaw)
+- [hrr-memory-obs](https://github.com/Joncik91/hrr-memory-obs) — observation layer (use outside OpenClaw)
+- [Architecture](https://github.com/Joncik91/hrr-memory/blob/main/docs/architecture.md) — how HRR works under the hood
 
 ## License
 
