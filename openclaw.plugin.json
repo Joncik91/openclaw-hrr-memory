@@ -1,0 +1,26 @@
+{
+  "id": "hrr-memory",
+  "name": "HRR Fact Memory",
+  "description": "Structured fact recall using Holographic Reduced Representations. Instant <2ms lookups for factual questions (who, what, where, which). Complements RAG-based memory_search.",
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "memoryFiles": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Paths to MEMORY.md files to index. Defaults to workspace MEMORY.md."
+      },
+      "watchInterval": {
+        "type": "number",
+        "default": 30000,
+        "description": "File watcher interval in ms. Set to 0 to disable."
+      },
+      "enableObservations": {
+        "type": "boolean",
+        "default": false,
+        "description": "Enable the observation layer (requires hrr-memory-obs). Tracks belief changes over time."
+      }
+    }
+  }
+}

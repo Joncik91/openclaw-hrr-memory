@@ -1,0 +1,32 @@
+{
+  "name": "openclaw-hrr-memory",
+  "version": "1.0.0",
+  "description": "Structured fact recall for OpenClaw agents using Holographic Reduced Representations. Complements RAG with instant <2ms factual lookups.",
+  "type": "module",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "Jounes <jounes@reefsown.space>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Joncik91/openclaw-hrr-memory"
+  },
+  "keywords": [
+    "openclaw",
+    "openclaw-plugin",
+    "memory",
+    "hrr",
+    "holographic-reduced-representations",
+    "agent-memory",
+    "fact-recall",
+    "structured-memory"
+  ],
+  "dependencies": {
+    "hrr-memory": "^0.2.0"
+  },
+  "optionalDependencies": {
+    "hrr-memory-obs": "^0.1.2"
+  },
+  "openclaw": {
+    "extensions": ["./index.js"]
+  }
+}
